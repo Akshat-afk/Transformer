@@ -27,7 +27,7 @@ positional_encodings = PositionalEncoding.positionalEncoding(len(input_words),3)
 
 positional_encoded_words = word_embeddings+positional_encodings
 
-Self_Attention = SelfAttention.SelfAttention(input_dimensions,32).to(device)
+Self_Attention = SelfAttention.SelfAttention(input_dimensions).to(device)
 
 # Move positional_encoded_words to the same device as the model
 positional_encoded_words = positional_encoded_words.to(device)
