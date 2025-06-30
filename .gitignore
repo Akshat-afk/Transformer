@@ -1,0 +1,37 @@
+# === Python Cache ===
+__pycache__/
+*.py[cod]
+*.pyo
+
+# === Dataset Files ===
+*.txt
+*.json
+*.csv
+*.tsv
+data/
+datasets/
+shakespeare_plays/
+shakespeare_full_cleaned.txt
+.cache/
+*.zip
+*.tar.gz
+
+# === Model Files ===
+*.pth
+*.pt
+checkpoints/
+saved_models/
+
+# === Logs and Outputs ===
+*.log
+*.out
+*.tmp
+runs/
+
+# === OS & Editor Files ===
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.env
+.venv/

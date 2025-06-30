@@ -12,19 +12,13 @@ class Transformer(nn.Module):
             sequence_len=sequence_len,
             input_dimensions=input_dimensions
             )
-        self.fcl = nn.Sequential(
-            nn.Linear(input_dimensions,1280),
-            nn.ReLU(),
-            nn.Linear(1280, input_dimensions),
-            nn.Softmax(dim=-1)
-        )
         self.decoder = Decoder(
             vocabulary_size=vocabulary_size,
             number_of_embeddings=number_of_embeddings,
             sequence_len=sequence_len,
             input_dimensions=input_dimensions
             )
-
+        
     def forward(self, x):
         encoder_output = self.encoder(x)
         decoder_output = self.decoder(x, encoder_output)

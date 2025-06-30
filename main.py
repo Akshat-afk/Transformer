@@ -31,9 +31,16 @@ for i in range(0, len(input_text) - sequence_len):
 input_indices = torch.tensor(inputs, dtype=torch.long).to(device)
 target = torch.tensor(targets, dtype=torch.long).to(device)
 
+# Create DataLoader for batching
+from torch.utils.data import DataLoader, TensorDataset
+
+batch_size = 32
+dataset = TensorDataset(input_indices, target)
+dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+
 # Parameters
 vocabulary_size = len(vocabulary)
-embedding_dim = 3
+embedding_dim = 64
 sequence_len = input_indices.size(1)
 
 # Initialize Transformer
@@ -41,27 +48,27 @@ model = Transformer(
     vocabulary_size=vocabulary_size,
     number_of_embeddings=embedding_dim,
     sequence_len=sequence_len,
-    input_dimensions=3,
+    input_dimensions=64,
 ).to(device)
 
 # Loss and optimizer
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=0.01)
+optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-# Training loop
-for epoch in range(10):  # Reduced for efficiency
-    model.train()
-    epoch_loss = 0
-    for i in tqdm(range(len(input_indices)), desc=f"Epoch {epoch+1}"):
-        x = input_indices[i].unsqueeze(0)
-        y = target[i].unsqueeze(0)
-        optimizer.zero_grad()
-        output = model(x)
-        loss = criterion(output.view(-1, vocabulary_size), y.view(-1))
-        loss.backward()
-        optimizer.step()
-        epoch_loss += loss.item()
-    print(f"Epoch {epoch+1}, Loss: {epoch_loss:.4f}")
+# # Training loop
+# for epoch in range(10):  # Reduced for efficiency
+#     model.train()
+#     epoch_loss = 0
+#     for x, y in tqdm(dataloader, desc=f"Epoch {epoch+1}"):
+#         optimizer.zero_grad()
+#         output = model(x)
+#         loss = criterion(output.view(-1, vocabulary_size), y.view(-1))
+#         loss.backward()
+#         optimizer.step()
+#         epoch_loss += loss.item()
+#     print(f"Epoch {epoch+1}, Loss: {epoch_loss:.4f}")
+
+# torch.save(model.state_dict(), "transformer_trained.pth")
 
 # Inference
 model.eval()
