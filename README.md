@@ -35,7 +35,7 @@ This project aims to:
 
 ## Presentation
 
-[*Presentation*](https://www.canva.com/design/DAGrWXPRzCk/OXrrrV4LCdotJTFtiFjTyQ/view?utm_content=DAGrWXPRzCk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3589fcd8af#6
+[*Presentation*](https://www.canva.com/design/DAGrWXPRzCk/OXrrrV4LCdotJTFtiFjTyQ/view?utm_content=DAGrWXPRzCk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3589fcd8af#1
 ) on the theoretical aspect
 
 ## 🙌 Acknowledgements
