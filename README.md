@@ -13,30 +13,12 @@ This project aims to:
 ## 🧠 Key Features
 
 - Encoder and Decoder blocks implemented step-by-step
-- Scaled Dot-Product Attention and Multi-Head Attention
+- Scaled Dot-Product Attention
 - Positional Encoding (sinusoidal)
-- Masking for autoregressive decoding
 - Cross-attention between encoder and decoder
 - Full forward pass for training/inference
 - Minimal dependencies, clean and readable code
 
-## 📁 Structure
-
-```
-transformer/
-├── model/
-│   ├── attention.py         # Scaled dot-product & multi-head attention
-│   ├── encoder.py           # Encoder block
-│   ├── decoder.py           # Decoder block
-│   ├── transformer.py       # Full Transformer architecture
-│   └── positional_encoding.py
-├── utils/
-│   └── masks.py             # Padding and look-ahead masks
-├── train.py                 # Example training loop (optional)
-├── vocab.py                 # Simple tokenizer/vocab utilities
-├── config.py                # Hyperparameter config
-└── README.md
-```
 
 ## 🛠️ Dependencies
 
@@ -44,39 +26,13 @@ transformer/
 - PyTorch >= 1.10
 - NumPy
 
-Install using:
-
-```bash
-pip install -r requirements.txt
-```
-
-## 🧪 Example Usage
-
-```python
-from model.transformer import Transformer
-
-model = Transformer(
-    num_layers=6,
-    d_model=512,
-    num_heads=8,
-    dff=2048,
-    input_vocab_size=8000,
-    target_vocab_size=8000,
-    max_pos_encoding=10000
-)
-```
 
 ## 📝 Status
 
 ✅ Core architecture  
-🟡 Training loop / tokenizer  
-🔲 Dataset integration  
+✅ Training loop / tokenizer  
+✅ Dataset integration  
 
-## 🧭 Roadmap
-
-- [ ] Add training script on toy data (e.g., Copy task, Translation)
-- [ ] Integrate positional encoding visualizations
-- [ ] Add support for BPE/tokenizers
 
 ## 🙌 Acknowledgements
 
